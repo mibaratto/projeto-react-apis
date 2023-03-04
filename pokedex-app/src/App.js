@@ -1,9 +1,11 @@
+import { PokemonListPage } from "./Pages/PokemonListPage/PokemonListPage";
+
 
 
 function App() {
   return (
     <div>
-      <h1>Oi</h1>
+      <PokemonListPage />
     </div>
   );
 }
