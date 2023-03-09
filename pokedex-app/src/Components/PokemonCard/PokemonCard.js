@@ -1,8 +1,12 @@
+import { PokemonCardContainer } from "./PokemonCardStyled";
 
 
-export function PokemonCard() {
+export function PokemonCard({name}) {
     return (
-            <p>PokemonCard</p>
+            <PokemonCardContainer>
+                <img src="https://picsum.photos/200" alt=""></img>
+                <h1>{name}</h1>
+            </PokemonCardContainer>
+            
     )
 }
-

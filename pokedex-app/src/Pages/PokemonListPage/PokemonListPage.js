@@ -1,20 +1,25 @@
 import { PokemonCard } from "../../Components/PokemonCard/PokemonCard";
+import { PokemonListPageContainer } from "./PokemonListPageStyle";
 
 
 
 
-export function PokemonListPage() {
+export function PokemonListPage({pokemonList}) {
     
     return (
-            <>
-            <h1>TESTE</h1>
-            <PokemonCard />
-            <PokemonCard /> 
-            <PokemonCard /> 
-            <PokemonCard /> 
-            </>
-            
+            <PokemonListPageContainer>
+                <main>
+                    {pokemonList.map((pokemon, index)=> {
+                        return (
+                            <PokemonCard
+                            key={index}
+                            name={pokemon.name}
+                            />
+                        )
+                    })}
 
+                </main>
+            </PokemonListPageContainer>
                         
     )
 }
