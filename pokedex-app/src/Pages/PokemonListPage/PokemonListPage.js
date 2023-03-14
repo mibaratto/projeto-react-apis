@@ -1,10 +1,30 @@
 import { PokemonCard } from "../../Components/PokemonCard/PokemonCard";
 import { PokemonListPageContainer } from "./PokemonListPageStyle";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 
+export function PokemonListPage() {
 
+    const [pokemonList, setPokemonList] = useState([])
 
-export function PokemonListPage({pokemonList}) {
+  const getPokemonList = () => {
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon")
+      .then((response) => {
+        setPokemonList(response.data.results)
+      })
+      .catch((error) => {
+        console.log(error.response.data)
+      })
+  }
+
+  useEffect(()=> {
+    getPokemonList()
+  }, [])
+
+  console.log(pokemonList)
+
     
     return (
             <PokemonListPageContainer>
