@@ -1,15 +1,17 @@
 
-import { Header } from "./Components/Header/Header";
 import { GlobalStyle } from "./GlobalStyle";
 import { Router } from "./Routes/router";
+import { ChakraProvider } from '@chakra-ui/react';
+import { theme } from "./Styles/theme";
 
 function App() {
 
   return (
     <div>
       <GlobalStyle/>
-      <Header/>
-      <Router/>
+      <ChakraProvider theme={theme}>
+        <Router />
+    </ChakraProvider>
     </div>
   );
 }

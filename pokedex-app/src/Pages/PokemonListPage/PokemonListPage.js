@@ -34,6 +34,8 @@ export function PokemonListPage() {
                             <PokemonCard
                             key={index}
                             name={pokemon.name}
+                            id={index}
+                            // nao tenho o id nessa chamada
                             />
                         )
                     })}
