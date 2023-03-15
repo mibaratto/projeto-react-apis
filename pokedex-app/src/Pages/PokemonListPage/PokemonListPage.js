@@ -4,37 +4,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-export function PokemonListPage() {
-
-    const [pokemonList, setPokemonList] = useState([])
-
-  const getPokemonList = () => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon")
-      .then((response) => {
-        setPokemonList(response.data.results)
-      })
-      .catch((error) => {
-        console.log(error.response.data)
-      })
-  }
-
-  useEffect(()=> {
-    getPokemonList()
-  }, [])
-
-  console.log(pokemonList)
-
-    
+export function PokemonListPage({pokemonList, addToPokedex, pokedexList}) {
+  
     return (
             <PokemonListPageContainer>
                 <main>
-                    {pokemonList.map((pokemon, index)=> {
+                    {pokemonList
+                    .filter((pokemonInList) => !pokedexList.find((pokemonInPokedex) => 
+                        pokemonInList.name === pokemonInPokedex.name))   
+                    .map((pokemon, index)=> {
                         return (
                             <PokemonCard
                             key={index}
-                            name={pokemon.name}
-                            id={index}
+                            pokemon={pokemon}
+                            addToPokedex={addToPokedex}
                             // nao tenho o id nessa chamada
                             />
                         )
