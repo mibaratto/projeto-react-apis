@@ -52,6 +52,7 @@ import { useEffect, useState } from "react";
 
 
   console.log(" NOVA Pokedex", pokedexList)
+  console.log("pokemonListRouter", pokemonList )
 
 
     return (
@@ -78,7 +79,7 @@ import { useEffect, useState } from "react";
                 path="/detail/:id" 
                 element={
                 <PokemonDetailPage
-
+                pokemonList={pokemonList}
                  />}/>
             </Routes>
         </BrowserRouter>
