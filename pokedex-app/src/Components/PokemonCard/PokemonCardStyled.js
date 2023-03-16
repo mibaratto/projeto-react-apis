@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PokemonCardContainer = styled.div`
     /* width: 300px; */
-    background-color: blue;
+    /* background-color: blue; */
     padding: 10px;
     margin: 5px;
     text-align: center;
