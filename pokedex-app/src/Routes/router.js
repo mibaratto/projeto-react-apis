@@ -33,7 +33,7 @@ import { useEffect, useState } from "react";
 
         const pokemon = { 
           name: pokemonResponse.data.name,
-          image: pokemonResponse.data.sprites.other["dream_world"]["front_default"],
+          image: pokemonResponse.data.sprites.other["official-artwork"]["front_default"],
           id: pokemonResponse.data.id,
           spritesFront: pokemonResponse.data.sprites.versions["generation-v"]["black-white"].animated.front_default,
           spritesBack: pokemonResponse.data.sprites.versions["generation-v"]["black-white"].animated.back_default,
