@@ -1,7 +1,6 @@
 import { PokemonCard } from "../../Components/PokemonCard/PokemonCard";
 import { PokemonListPageContainer } from "./PokemonListPageStyle";
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 
 
 export function PokemonListPage({pokemonList, addToPokedex, pokedexList}) {
@@ -18,7 +17,6 @@ export function PokemonListPage({pokemonList, addToPokedex, pokedexList}) {
                             key={index}
                             pokemon={pokemon}
                             addToPokedex={addToPokedex}
-                            // nao tenho o id nessa chamada
                             />
                         )
                     })}

@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import { goToPokedexPage, goToPokemonListPage } from "../../Routes/coordinator";
 import { useNavigate } from "react-router-dom";
 
+console.log("logo", logo)
 
 export const Header = () => {
     const navigate = useNavigate()
