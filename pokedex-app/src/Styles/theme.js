@@ -1,6 +1,13 @@
 import { extendTheme } from "@chakra-ui/react"
 
 export const theme = extendTheme({
+    styles: {
+      global:() => ({
+        body: {
+          bg: "#5E5E5E"
+        }
+      })
+    },
     components: {
       Button: {
         variants: {

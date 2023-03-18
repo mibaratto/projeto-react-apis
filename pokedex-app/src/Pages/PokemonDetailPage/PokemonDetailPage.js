@@ -1,7 +1,12 @@
-
 import { Container, Flex, HStack, Image, Progress, Spacer, Stack, Text, VStack } from "@chakra-ui/react";
 import { useParams } from "react-router";
-import { PokemonDetailContainer } from "./PokemonDetailPageStyle";
+import  bug  from "../../assets/bug.png"
+import  fire  from "../../assets/fire.png"
+import  water  from "../../assets/water.png"
+import  grass  from "../../assets/grass.png"
+import  normal  from "../../assets/normal.png"
+import  poison  from "../../assets/poison.png"
+import  flying  from "../../assets/flying.png"
 
 
 export function PokemonDetailPage({pokemonList}) {
@@ -26,11 +31,23 @@ export function PokemonDetailPage({pokemonList}) {
         }
     }
 
+    const renderImage = (tipo) => {
+        switch (tipo) {
+            case "grass": return grass;
+            case "fire": return fire;
+            case "water": return water;
+            case 'bug': return bug;
+            case "normal": return normal;
+            case "poison": return poison;
+            case "flying": return flying;
 
-    // console.log("movesmovesMaped", movesMaped)
-    // console.log("moves", pokemonDetalhe.moves )
+            default: return "not found"
+        }
+    }
+
 
     return (
+    
                 <Flex  justify="space-between"  size="fit-content" bg={backgroundColor}  m="5vh" borderRadius="30px" p="48px" maxW="70vw">
                     <VStack>
                         <Stack  bg="white" p="50px" borderRadius="16px">
@@ -55,7 +72,14 @@ export function PokemonDetailPage({pokemonList}) {
                         <Stack spacing={0}>
                             <Text fontSize='lg'>{`#0${pokemonDetalhe.id}`}</Text>
                             <Text fontSize='lg'as='b' textTransform="capitalize">{pokemonDetalhe.name}</Text>
-                            {/* <Text>{pokemonDetalhe.types}</Text> */}
+                            <HStack>
+                            {pokemonDetalhe.types.map((tipo) => {
+                                return (
+                                    <Image src={renderImage(tipo)}  w="60px" />
+                                )                                
+                             })
+                            }
+                            </HStack>
                         </Stack >
                         <Stack mt="24px" bg="white" p="24px" borderRadius="16px">
                             {movesMaped}
@@ -65,5 +89,6 @@ export function PokemonDetailPage({pokemonList}) {
                     <Image src={pokemonDetalhe.image} alt="pokemon" minW="150px" maxW="200px"/>
                     </Stack>
                 </Flex>  
+        
     )
 }

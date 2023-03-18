@@ -3,6 +3,12 @@ import { PokemonCardContainer } from "./PokemonCardStyled";
 import { useLocation, useNavigate } from "react-router-dom";
 import { goToPokemonDetailPage } from "../../Routes/coordinator";
 import  bug  from "../../assets/bug.png"
+import  fire  from "../../assets/fire.png"
+import  water  from "../../assets/water.png"
+import  grass  from "../../assets/grass.png"
+import  normal  from "../../assets/normal.png"
+import  poison  from "../../assets/poison.png"
+import  flying  from "../../assets/flying.png"
 import { Flex, Spacer } from '@chakra-ui/react'
 
 
@@ -21,21 +27,19 @@ export function PokemonCard({pokemon, addToPokedex, removeFromPokedex}) {
         }
     }
 
-    // const renderImage = () => {
-    //     switch (pokemon.types[0]) {
-    //         case "grass": return grass;
-    //         case "fire": return fire;
-    //         case "water": return water;
-    //         case 'bug': return "../../assets/bug.png"
+    const renderImage = (tipo) => {
+        switch (tipo) {
+            case "grass": return grass;
+            case "fire": return fire;
+            case "water": return water;
+            case 'bug': return bug;
+            case "normal": return normal;
+            case "poison": return poison;
+            case "flying": return flying;
 
-    //         case "normal": 
-    //             return (imageTipo = normal)
-
-    //         default: return "not found"
-    //     }
-    // }
-
-
+            default: return "not found"
+        }
+    }
 
 
     return (
@@ -47,7 +51,14 @@ export function PokemonCard({pokemon, addToPokedex, removeFromPokedex}) {
                         <Text fontSize='sm'>{`#0${pokemon.id}`}</Text>
                         <Text fontSize='lg'as='b' textTransform="capitalize">{pokemon.name}</Text>
                     </Stack>
-                    <Image src={bug}  w="60px"></Image>    
+                    <HStack>
+                            {pokemon.types.map((tipo) => {
+                                return (
+                                    <Image src={renderImage(tipo)}  w="60px" />
+                                )                                
+                             })
+                            }
+                    </HStack>                    
                 </Stack>
                 <Spacer/>
                 <Stack position="absolute" top="-8" right="0" >
